@@ -21,4 +21,16 @@ router.post('/', async (req, res, next) => {
     }
   });
 
-  module.exports = router;
+// GET /api/anuncios
+// Devuelve la lista de anuncios
+router.get('/', async function(req, res, next) {
+  try {
+    const anuncios = await Anuncio.find();
+    res.json({ results: anuncios });
+  } catch (error) {
+    next(error)
+  }
+});
+
+
+module.exports = router;
