@@ -10,6 +10,16 @@ const anuncioSchema = mongoose.Schema({
          enum: ['work', 'lifestyle', 'motor', 'mobile']}
 });
 
+// método listar (estático, porque está en el modelo)
+anuncioSchema.statics.listar = function(filtro, skip, limit, sort, fields) {
+  const query = Anuncio.find(filtro);
+  query.skip(skip);
+  query.limit(limit);
+  query.sort(sort);
+  query.select(fields);
+  return query.exec();
+}
+
 // crear el modelo de anuncio
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);
 
