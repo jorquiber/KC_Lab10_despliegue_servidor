@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Rutas del api
-app.use('/api/anuncios', require('./routes/api/anuncios'));
+app.use('/apiv1/anuncios', require('./routes/api/anuncios'));
 
 // Rutas del web
 app.use('/', indexRouter);
@@ -42,7 +42,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
 
   // si el fallo es en el API, responder en formato JSON
-  if (req.originalUrl.startsWith('/api/')) {
+  if (req.originalUrl.startsWith('/apiv1/')) {
     res.json({ error: err.message });
     return;
   }
