@@ -71,4 +71,19 @@ router.get('/', async function(req, res, next) {
 });
 
 
+// GET /api/anuncios/tags
+// Devuelve los tags existentes en la BBDD
+router.get('/tags', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+
+    const tags = await Anuncio.distinct('tags');
+
+    res.json({ result: tags });
+  } catch (error) {
+    next(error);
+  }
+});
+
+
 module.exports = router;
