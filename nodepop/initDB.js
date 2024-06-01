@@ -1,9 +1,14 @@
 'use strict';
 
+require('dotenv').config();
+
 const readline = require('node:readline');
 const connection = require('./lib/connectMongoose');
 const Anuncio = require('./models/Anuncio');
+const Usuario = require('./models/Usuario');
 const anunciosIniciales = require('./initialData/anuncios.json');
+const usuariosIniciales = require('./initialData/usuarios.json');
+const e = require('express');
 
 main().catch(err => console.log('Hubo un error', err));
 
@@ -18,6 +23,7 @@ async function main() {
   }
 
   await initAnuncios();
+  await initUsuarios();
 
   connection.close();
 
@@ -45,4 +51,22 @@ function pregunta(texto) {
       resolve(respuesta.toLowerCase() === 'si');
     })
   });
+}
+
+async function initUsuarios() {
+  // borrar todos los usuarios
+  const deleted = await Usuario.deleteMany();
+  console.log(`Eliminados ${deleted.deletedCount} usuarios.`);
+
+  // crear usuarios iniciales
+  const hashedUsers = await Promise.all(
+    usuariosIniciales.usuarios.map(async usuario => ({
+      email: usuario.email, 
+      password: await Usuario.hashPassword(usuario.password)
+    }))
+  );
+  
+  const inserted = await Usuario.insertMany(hashedUsers);
+
+  console.log(`Creados ${inserted.length} usuarios.`);
 }

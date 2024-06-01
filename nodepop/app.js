@@ -3,6 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const jwtAuth = require('./lib/jwtAuthMiddleware');
+const LoginController = require('./controllers/loginController');
+
+const loginController = new LoginController();
 
 require('./lib/connectMongoose');
 
@@ -23,7 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Rutas del api
-app.use('/apiv1/anuncios', require('./routes/api/anuncios'));
+app.post('/apiv1/authenticate', loginController.postAPIJWT);
+app.use('/apiv1/anuncios', jwtAuth, require('./routes/api/anuncios'));
 
 // Rutas del web
 app.use('/', indexRouter);
