@@ -7,7 +7,8 @@ const anuncioSchema = mongoose.Schema({
   precio: {type: Number, required: true, index: true},
   foto: String,
   tags: {type: [String],
-         enum: ['work', 'lifestyle', 'motor', 'mobile']}
+         enum: ['work', 'lifestyle', 'motor', 'mobile'],
+        index: true},
 });
 
 // método listar (estático, porque está en el modelo)
