@@ -3,6 +3,7 @@ var router = express.Router();
 const Anuncio = require('../../models/Anuncio');
 const filterConfiguration = require('../../lib/filterConfiguration');
 const upload = require('../../lib/publicUploadConfigure');
+const publisher = require('../../lib/publisher');
 
 // POST /api/anuncios (body)
 // Crea un anuncio
@@ -16,6 +17,8 @@ router.post('/',  upload.single('foto'), async (req, res, next) => {
   
       // lo persistimos en la BD
       const anuncioGuardado = await anuncio.save();
+
+      if (data.foto) await publisher({ imagePath: req.file.path }).catch(err => console.log('Hubo un error', err));
   
       res.json({ result: anuncioGuardado });
   
