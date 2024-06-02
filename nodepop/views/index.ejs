@@ -1,16 +1,23 @@
 
   <%- include('_header') %>
-    <h1><%= title %></h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1><%= __('Adverts list') %></h1>
+        <p class="lead"><%= __('Listing') %> <%= anuncios.length %> <%= __n('adverts', anuncios.length) %>  </p>
+      </div>
+    </div>
+
     <ul>
     <% anuncios.forEach(anuncio => { %>
       <li> <%=anuncio.nombre%>
         <ul>
-            <li>Precio: <%=anuncio.precio%> €</li>
-            <li>Venta: <%=anuncio.venta ? 'si':'no' %></li>
+            <li><%= __('Price') %>: <%=anuncio.precio%> €</li>
+            <li><%= __('Sale') %>: <%=anuncio.venta ? 'si':'no' %></li>
             <li> 
               <img src=<%= imagesPath + anuncio.foto %> alt=<%= anuncio.foto %> width="200" >
             </li>
-            <li>Tags: <%=anuncio.tags.join(', ')%></li>
+            <li><%= __('Tags') %>: <%=anuncio.tags.join(', ')%></li>
         </ul>
       </li>
     <% }) %>

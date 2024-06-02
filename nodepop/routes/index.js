@@ -16,7 +16,7 @@ router.get('/', async function(req, res, next) {
     next(error)
   }
 
-  res.render('index', { title: 'Anuncios', imagesPath: '/images/' });
+  res.render('index', { title: 'Nodepop', imagesPath: '/images/' });
 });
 
 module.exports = router;

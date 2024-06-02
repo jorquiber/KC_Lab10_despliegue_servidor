@@ -4,9 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const jwtAuth = require('./lib/jwtAuthMiddleware');
-const LoginController = require('./controllers/loginController');
+const i18n = require('./lib/i18nConfigure');
+
+
+const LoginController = require('./controllers/LoginController');
+const LangController = require('./controllers/LangController');
 
 const loginController = new LoginController();
+const langController = new LangController();
 
 require('./lib/connectMongoose');
 
@@ -33,9 +38,11 @@ app.post('/apiv1/authenticate', loginController.postAPIJWT);
 app.use('/apiv1/anuncios', jwtAuth, require('./routes/api/anuncios'));
 
 // Rutas del web
+app.use(i18n.init);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/anuncios', require('./routes/anuncios'));
+app.get('/change-locale/:locale', langController.changeLocale);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

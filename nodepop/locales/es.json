@@ -1,0 +1,22 @@
+{
+	"Adverts list": "Lista de anuncios",
+	"Listing": "Listando",
+	"Name": "Nombre",
+	"Sale": "Venta",
+	"Price": "Precio",
+	"Photo": "Foto",
+	"Tags": "Etiquetas",
+	"Yes": "Sí",
+	"No": "No",
+	"Examples": "Ejemplos",
+	"All": "Todos",
+	"In pages": "Paginado",
+	"Sorted by ascending price": "Ordenado por precio ascendente",
+	"Sorted by descending price": "Ordenado por precio descendente",
+	"With mobile tag": "Con etiqueta móvil",
+	"Return home": "Volver a la página principal",
+	"adverts": {
+		"one": "anuncio",
+		"other": "anuncios"
+	}
+}

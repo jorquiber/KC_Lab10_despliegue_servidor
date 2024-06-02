@@ -1,0 +1,22 @@
+{
+	"Adverts list": "Adverts list",
+	"Listing": "Listing",
+	"Name": "Name",
+	"Sale": "Sale",
+	"Price": "Price",
+	"Photo": "Photo",
+	"Tags": "Tags",
+	"Yes": "Yes",
+	"No": "No",
+	"Examples": "Examples",
+	"All": "All",
+	"In pages": "In pages",
+	"Sorted by ascending price": "Sorted by ascending price",
+	"Sorted by descending price": "Sorted by descending price",
+	"With mobile tag": "With mobile tag",
+	"Return home": "Return home",
+	"adverts": {
+		"one": "advert",
+		"other": "adverts"
+	}
+}
