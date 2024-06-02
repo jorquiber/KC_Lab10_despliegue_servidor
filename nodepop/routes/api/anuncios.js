@@ -2,12 +2,14 @@ var express = require('express');
 var router = express.Router();
 const Anuncio = require('../../models/Anuncio');
 const filterConfiguration = require('../../lib/filterConfiguration');
+const upload = require('../../lib/publicUploadConfigure');
 
 // POST /api/anuncios (body)
 // Crea un anuncio
-router.post('/', async (req, res, next) => {
+router.post('/',  upload.single('foto'), async (req, res, next) => {
     try {
       const data = req.body;
+      if (req.file) data.foto = req.file.filename;
   
       // creamos una instancia de anuncio en memoria
       const anuncio = new Anuncio(data);
