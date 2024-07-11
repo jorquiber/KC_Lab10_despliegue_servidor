@@ -1,7 +1,5 @@
 # NodePop
 
-# NodePop
-
 Este proyecto consiste en la mejora de una aplicación Node.js llamada NodePop realizada para el laboratorio del módulo 'Desarrollo Backend con Node.js' del bootcamp 'Desarrollo Web Full Stack' de 'KeepCoding Tech School'. Esta mejora es para el laboratorio del módulo 'Desarrollo Backend Avanzado con Node.js'.
 
 Para el laboraorio de 'Configuración de servidores y despliegue de aplicaciones', se puede acceder a la aplicaciones en:
