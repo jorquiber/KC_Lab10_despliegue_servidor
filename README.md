@@ -1,6 +1,14 @@
 # NodePop
 
+# NodePop
+
 Este proyecto consiste en la mejora de una aplicación Node.js llamada NodePop realizada para el laboratorio del módulo 'Desarrollo Backend con Node.js' del bootcamp 'Desarrollo Web Full Stack' de 'KeepCoding Tech School'. Esta mejora es para el laboratorio del módulo 'Desarrollo Backend Avanzado con Node.js'.
+
+Para el laboraorio de 'Configuración de servidores y despliegue de aplicaciones', se puede acceder a la aplicaciones en:
+
+- **NodePop**: La aplicación NodePop desarrollada para el curso de Programación Backend con Node se encuentra desplegada en [http://ec2-52-4-190-62.compute-1.amazonaws.com/](http://ec2-52-4-190-62.compute-1.amazonaws.com/).
+
+- **React Avanzado**: La práctica realizada en el módulo de React o React Avanzado, a elección del alumno, se encuentra desplegada en [http://52.4.190.62/](http://52.4.190.62/).
 
 NodePop es una aplicación que proporciona una plataforma para publicar y buscar anuncios. Utiliza Node.js en el backend para gestionar las solicitudes de los usuarios y proporcionar respuestas dinámicas a través de un API RESTful. La aplicación incluye características como la creación de anuncios, la búsqueda de anuncios por diversos criterios y la visualización de los anuncios en una interfaz de usuario amigable.
 
